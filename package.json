@@ -1,0 +1,31 @@
+{
+  "name": "node-static-example",
+  "version": "1.0.0",
+  "description": "uses node js to create a static web application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chen7david/node-static-example.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chen7david/node-static-example/issues"
+  },
+  "homepage": "https://github.com/chen7david/node-static-example#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.20.1",
+    "nunjucks": "^3.2.0",
+    "objection": "^1.6.11",
+    "objection-db-errors": "^1.1.1",
+    "pluralize": "^8.0.0",
+    "sqlite3": "^4.1.0"
+  }
+}
