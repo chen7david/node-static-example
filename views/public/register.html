@@ -5,32 +5,51 @@
 
 <h1>Register Now</h1>
 <form action="/register" method="post">
+
     <div class="form-group">
         <label for="username">Username</label>
-        <input type="text" class="form-control {% if errors.username %} is-invalid {% endif%}" name="username" value="{{body.username}}" placeholder="username">
-            {% if errors.username %}
-                <span class="text-danger small px-2">{{errors.username}}</span>
-            {% endif %}            
+        <input type="text" class="form-control {% if errors.username %} is-invalid {% else %} is-valid {% endif%}" name="username" value="{{body.username}}" placeholder="username">
+        {% if errors.username %}
+            <span class="text-danger small px-2">{{errors.username}}</span>
+        {% endif %}            
     </div>
-
-    <div class="form-group">
-        <label for="username">Email address</label>
-        <input type="text" class="form-control is-invalid" name="email" placeholder="username">
-            {% if errors.username %}
-                <li>{{errors.username}}</li>
-            {% endif %}            
-    </div>
-
 
     <div class="form-group">
         <label for="firstName">First Name</label>
-        <input type="text" class="form-control" name="firstName" placeholder="David">
+        <input type="text" class="form-control {% if errors.firstName %} is-invalid {% else %} is-valid {% endif%}" name="firstName" value="{{body.firstName}}" placeholder="firstName">
+        {% if errors.firstName %}
+            <span class="text-danger small px-2">{{errors.firstName}}</span>
+        {% endif %}            
     </div>
 
     <div class="form-group">
         <label for="lastName">Last Name</label>
-        <input type="text" class="form-control" name="lastName" placeholder="Chen">
+        <input type="text" class="form-control {% if errors.lastName %} is-invalid {% else %} is-valid {% endif%}" name="lastName" value="{{body.lastName}}" placeholder="lastName">
+        {% if errors.lastName %}
+            <span class="text-danger small px-2">{{errors.lastName}}</span>
+        {% endif %}            
     </div>
+
+    <div class="form-group">
+        <label for="dateOfBirth">Date Of Birth</label>
+        <input type="date" class="form-control {% if errors.dateOfBirth %} is-invalid {% else %} is-valid {% endif%}" name="dateOfBirth" value="{{body.dateOfBirth}}" placeholder="dateOfBirth">
+        {% if errors.dateOfBirth %}
+            <span class="text-danger small px-2">{{errors.dateOfBirth}}</span>
+        {% endif %}            
+    </div>
+
+    <div class="form-group">
+        <label for="dateOfBirth">Sex</label>
+        <select class="form-control bg-white" name="sex">
+            <option disabled=""></option>
+            <option  value="true">Male (&#9894)</option>
+            <option  value="false">Female (&#9792)</option>
+        </select>
+        {% if errors.sex %}
+            <span class="text-danger small px-2">{{errors.sex}}</span>
+        {% endif %}            
+    </div>
+
     <button class="btn btn-outline-success" type="submit">Submit</button>
 </form>
 {% endblock %}
