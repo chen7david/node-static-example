@@ -1,22 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="assets/js/jquery341.js"></script>
-    <script src="assets/js/popper.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    <title>Home</title>
-</head>
-<body>
-        {% include "partials/navtop.html" %}
-        <div class="container">
-            <div class="box"></div>
-                <a href="" class="btn">hello</a>
-        </div>
-    
-</body>
-</html>
+{% extends 'partials/template.html' %}
+{% block title %}Home{% endblock %}
+
+{% block body %}
+Welcome Home {{name}}
+<i class="fas fa-address-book"></i>
+
+{% endblock %}
