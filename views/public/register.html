@@ -41,9 +41,9 @@
     <div class="form-group">
         <label for="dateOfBirth">Sex</label>
         <select class="form-control bg-white" name="sex">
-            <option disabled=""></option>
-            <option  value="true">Male (&#9894)</option>
-            <option  value="false">Female (&#9792)</option>
+            <option selected="selected" value="volvo" disabled>Select your sex</option>
+            <option {% if body.sex %} selected {% endif %}  value="true">Male (&#9894)</option>
+            <option {% if not body.sex %} selected {% endif %} value="false">Female (&#9792)</option>
         </select>
         {% if errors.sex %}
             <span class="text-danger small px-2">{{errors.sex}}</span>

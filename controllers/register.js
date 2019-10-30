@@ -8,9 +8,11 @@ module.exports = {
     create: async (req, res) => {
 
         const { body, errors } = req.this
+        console.log(body)
         if(errors){
            return res.render('public/register.html', {errors, body})
         }
+        
         return res.render('public/login.html')
     },
 }
