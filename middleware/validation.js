@@ -32,8 +32,12 @@ module.exports  = {
     // USERS
         createUser: Joi.object().options({abortEarly:false}).keys({
             username: Joi.string().min(1).max(20).required().trim(),
-            email: Joi.string().email().required().trim(),
-            phoneNumber: Joi.string().min(1).max(60).required().trim(),
+            firstName: Joi.string().min(1).max(20).required().trim(),
+            lastName: Joi.string().min(1).max(20).required().trim(),
+            dateOfBirth: Joi.string().min(1).max(20).required().trim(),
+            sex: Joi.boolean(),
+            countryOfBirth: Joi.string().min(1).max(20).trim(),
+            placeOfBirth: Joi.string().min(1).max(20).trim(),
             password: Joi.string().min(8).max(30).required().trim(),
             passwordConfirm: Joi.any().valid(Joi.ref('password')),
         }),

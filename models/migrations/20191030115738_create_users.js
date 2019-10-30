@@ -3,9 +3,9 @@ exports.up = function(knex) {
     return knex.schema.createTable('accounts', table => {
         table.increments()
         table.string('userId').unique().notNullable()
-        table.string('firstName')
-        table.string('lastName')
-        table.string('dateOfBirth')
+        table.string('firstName').notNullable()
+        table.string('lastName').notNullable()
+        table.string('dateOfBirth').notNullable()
         table.boolean('sex').defaultTo(true)
         table.string('countryOfBirth')
         table.string('placeOfBirth')

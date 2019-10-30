@@ -1,8 +1,14 @@
 const router = require('express-promise-router')()
 const controller = require('./../controllers')
+const { validateBody } = require('./../middleware/validation')
 
 router.get('/',controller.public.home)
-router.get('/register',controller.public.register)
-router.get('/login',controller.public.login)
+
+
+router.route('/register')
+    .get(controller.register.view)
+    
+router.route('/login')
+    .get(controller.login.view)
 
 module.exports = router
