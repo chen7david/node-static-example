@@ -4,7 +4,8 @@
   "description": "uses node js to create a static web application",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server"
+    "dev": "nodemon server",
+    "dbreset":"knex migrate:rollback && knex migrate:latest"
   },
   "repository": {
     "type": "git",

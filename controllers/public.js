@@ -1,4 +1,4 @@
-
+const { User } = require('./../models')
 module.exports ={
 
     home: async (req, res) => {
