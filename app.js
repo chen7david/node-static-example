@@ -5,6 +5,7 @@ const cors = require('cors')
 const useragent = require('express-useragent')
 const nunjucks = require('nunjucks')
 
+// NUNJUCKS CONFIG
 nunjucks.configure('views', {
     autoescape: true,
     express: app
@@ -15,11 +16,9 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(useragent.express())
 
-
+// NUNJUCKS MOUNT
 app.use('/assets', express.static('views/assets'))
-app.use('/', (req, res) => {
-    res.render('index.html', {name:"david"})
-})
+app.use(require('./routes/public'))
 
 app.use((req,res,next)=>{
     throw({ status: 422, message:'ROUTENOTFOUND'})

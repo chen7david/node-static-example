@@ -1,8 +1,7 @@
+const router = require('express-promise-router')()
+const { PublicController } = require('./../controllers')
 
-module.exports ={
+router.route('/')
+    .get(PublicController.home)
 
-    homeRoute: async (req, res) => {
-        res.render('index.html', {name:"max"})
-    }
-    
-}
+module.exports = router
