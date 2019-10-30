@@ -9,8 +9,7 @@ module.exports = {
 
         const { body, errors } = req.this
         if(errors){
-            console.log(errors)
-           return res.render('public/register.html', {errors})
+           return res.render('public/register.html', {errors, body})
         }
         return res.render('public/login.html')
     },

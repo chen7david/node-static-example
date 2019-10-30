@@ -7,11 +7,10 @@
 <form action="/register" method="post">
     <div class="form-group">
         <label for="username">Username</label>
-        <input type="text" class="form-control {% if errors.username %} is-invalid {% endif%}" name="username" placeholder="username">
+        <input type="text" class="form-control {% if errors.username %} is-invalid {% endif%}" name="username" value="{{body.username}}" placeholder="username">
             {% if errors.username %}
-                <span>{{errors.username}}</span>
+                <span class="text-danger small px-2">{{errors.username}}</span>
             {% endif %}            
-        </ul>
     </div>
 
     <div class="form-group">
@@ -20,7 +19,6 @@
             {% if errors.username %}
                 <li>{{errors.username}}</li>
             {% endif %}            
-        </ul>
     </div>
 
 
