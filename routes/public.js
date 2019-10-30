@@ -1,7 +1,8 @@
 const router = require('express-promise-router')()
-const { PublicController } = require('./../controllers')
+const controller = require('./../controllers')
 
-router.route('/')
-    .get(PublicController.home)
+router.get('/',controller.public.home)
+router.get('/register',controller.public.register)
+router.get('/login',controller.public.login)
 
 module.exports = router

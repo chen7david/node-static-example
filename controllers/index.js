@@ -1,3 +1,3 @@
 module.exports = {
-    PublicController: require('./PublicController')
+    public: require('./public')
 }
