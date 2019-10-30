@@ -1,5 +1,5 @@
 const { User } = require('./../models')
-
+const { UniqueViolationError } = require('objection-db-errors')
 module.exports = {
     view: async (req, res) => {
         res.render('public/register.html')
@@ -8,11 +8,20 @@ module.exports = {
     create: async (req, res) => {
 
         const { body, errors } = req.this
-        console.log(body)
+
         if(errors){
            return res.render('public/register.html', {errors, body})
         }
-        
-        return res.render('public/login.html')
+
+        try{
+            const user = await User.query().insert(body)
+            return res.render('public/login.html')
+        }catch(error){
+            if(error instanceof UniqueViolationError){
+                const errors = {}
+                errors['username'] = "this username is alreay taken"
+                return res.render('public/register.html', {errors, body})
+            }
+        }
     },
 }

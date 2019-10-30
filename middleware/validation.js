@@ -42,7 +42,7 @@ module.exports  = {
             firstName: Joi.string().min(1).max(20).required().trim(),
             lastName: Joi.string().min(1).max(20).required().trim(),
             dateOfBirth: Joi.string().min(1).max(20).required().trim(),
-            sex: Joi.boolean(),
+            sex: Joi.string().required(),
             countryOfBirth: Joi.string().min(1).max(20).trim(),
             placeOfBirth: Joi.string().min(1).max(20).trim(),
             password: Joi.string().min(8).max(30).required().trim(),
@@ -68,8 +68,8 @@ module.exports  = {
             roleIds: Joi.array().required()
         }),
         loginUser: Joi.object().options({abortEarly:false}).keys({
-            username: Joi.string().min(1).max(20).required().trim(),
-            password: Joi.string().min(8).max(30).required().trim()
+            username: Joi.string().required().trim(),
+            password: Joi.string().required().trim()
         }),
 
 

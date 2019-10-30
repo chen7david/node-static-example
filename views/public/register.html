@@ -8,7 +8,7 @@
 
     <div class="form-group">
         <label for="username">Username</label>
-        <input type="text" class="form-control {% if errors.username %} is-invalid {% else %} is-valid {% endif%}" name="username" value="{{body.username}}" placeholder="username">
+        <input type="text" class="form-control {% if body.username and not errors.username  %}  is-valid {% endif%} {% if errors.username  %} is-invalid  {% endif%}" name="username" value="{{body.username}}" placeholder="username">
         {% if errors.username %}
             <span class="text-danger small px-2">{{errors.username}}</span>
         {% endif %}            
@@ -16,7 +16,7 @@
 
     <div class="form-group">
         <label for="firstName">First Name</label>
-        <input type="text" class="form-control {% if errors.firstName %} is-invalid {% else %} is-valid {% endif%}" name="firstName" value="{{body.firstName}}" placeholder="firstName">
+        <input type="text" class="form-control {% if body.firstName and not errors.firstName  %}  is-valid {% endif%} {% if errors.firstName  %} is-invalid  {% endif%}" name="firstName" value="{{body.firstName}}" placeholder="firstName">
         {% if errors.firstName %}
             <span class="text-danger small px-2">{{errors.firstName}}</span>
         {% endif %}            
@@ -24,7 +24,7 @@
 
     <div class="form-group">
         <label for="lastName">Last Name</label>
-        <input type="text" class="form-control {% if errors.lastName %} is-invalid {% else %} is-valid {% endif%}" name="lastName" value="{{body.lastName}}" placeholder="lastName">
+        <input type="text" class="form-control {% if body.lastName and not errors.lastName  %}  is-valid {% endif%} {% if errors.lastName  %} is-invalid  {% endif%}" name="lastName" value="{{body.lastName}}" placeholder="lastName">
         {% if errors.lastName %}
             <span class="text-danger small px-2">{{errors.lastName}}</span>
         {% endif %}            
@@ -32,21 +32,29 @@
 
     <div class="form-group">
         <label for="dateOfBirth">Date Of Birth</label>
-        <input type="date" class="form-control {% if errors.dateOfBirth %} is-invalid {% else %} is-valid {% endif%}" name="dateOfBirth" value="{{body.dateOfBirth}}" placeholder="dateOfBirth">
+        <input type="date" class="form-control {% if body.dateOfBirth and not errors.dateOfBirth  %}  is-valid {% endif%} {% if errors.dateOfBirth  %} is-invalid  {% endif%}" name="dateOfBirth" value="{{body.dateOfBirth}}" placeholder="dateOfBirth">
         {% if errors.dateOfBirth %}
             <span class="text-danger small px-2">{{errors.dateOfBirth}}</span>
         {% endif %}            
     </div>
 
     <div class="form-group">
-        <label for="dateOfBirth">Sex</label>
-        <select class="form-control bg-white" name="sex">
-            <option selected="selected" value="volvo" disabled>Select your sex</option>
-            <option {% if body.sex %} selected {% endif %}  value="true">Male (&#9894)</option>
-            <option {% if not body.sex %} selected {% endif %} value="false">Female (&#9792)</option>
+        <label for="sex">Sex</label>
+        <select class="form-control {% if body.sex and not errors.sex  %}  is-valid {% endif%} {% if errors.sex  %} is-invalid  {% endif%}" name="sex">
+            <option selected="selected" disabled>Select your sex</option>
+            <option {% if body.sex == "M" %} selected {% endif %} value="M">Male (&#9894)</option>
+            <option {% if body.sex == "F" %} selected {% endif %} value="F">Female (&#9792)</option>
         </select>
         {% if errors.sex %}
             <span class="text-danger small px-2">{{errors.sex}}</span>
+        {% endif %}            
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control {% if body.password and not errors.password  %}  is-valid {% endif%} {% if errors.password  %} is-invalid  {% endif%}" name="password" value="{{body.password}}" placeholder="password">
+        {% if errors.password %}
+            <span class="text-danger small px-2">{{errors.password}}</span>
         {% endif %}            
     </div>
 

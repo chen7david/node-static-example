@@ -11,5 +11,6 @@ router.route('/register')
     
 router.route('/login')
     .get(controller.login.view)
+    .post(validateBody(schema.loginUser),controller.login.check)
 
 module.exports = router
