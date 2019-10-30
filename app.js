@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const cors = require('cors')
-var useragent = require('express-useragent')
+const useragent = require('express-useragent')
 const nunjucks = require('nunjucks')
 
 nunjucks.configure('views', {
