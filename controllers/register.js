@@ -6,8 +6,12 @@ module.exports = {
     },
 
     create: async (req, res) => {
-        const form = req.this.body
-        console.log(form)
-        res.render('public/login.html')
+
+        const { body, errors } = req.this
+        if(errors){
+            console.log(errors)
+           return res.render('public/register.html', {errors})
+        }
+        return res.render('public/login.html')
     },
 }

@@ -18,10 +18,17 @@ module.exports  = {
     validateBody: (schema) => {
        return (req, res, next) => {
             const result = schema.validate(req.body)
-            if(result.error)
-                return next(result.error)
 
             if(!req.this) req.this = {}
+            if(result.error){
+                const { details } = result.error
+                const errors = {}
+                for(const error of details){
+                    errors[error.context.key] = error.message
+                }
+
+                req.this.errors = errors
+            }
             req.this.body = result.value
             next()
        }
